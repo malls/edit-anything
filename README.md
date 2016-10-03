@@ -1,0 +1,1 @@
+chrome extension to toggle document.body.contentEditable
