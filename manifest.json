@@ -8,5 +8,5 @@
 	"background": {
 		"scripts": ["bg.js"]
 	},
-	"permissions":["activeTab"] //Put All your URL here
+	"permissions":["activeTab"]
 }
