@@ -1,22 +1,26 @@
-var isOn = false;
+let isOn = false;
 
 function updateIcon(tab) {
-	var text = '';
+	let text = '';
 	if (isOn) text = 'on';
-	chrome.browserAction.setBadgeText({
+	chrome.action.setBadgeText({
 		text: text,
 		tabId: tab.id
 	});
 }
 
 function runScript(tab) {
-	var file = isOn ? 'turnOn.js' : 'turnOff.js';
-	chrome.tabs.executeScript(tab.id, {
-		file: file
+	let file = isOn ? 'turnOn.js' : 'turnOff.js';
+	chrome.scripting.executeScript({
+		target: {
+			tabId: tab.id,
+			allFrames: true
+		},
+		files: [file]
 	});
 }
 
-chrome.browserAction.onClicked.addListener(function(tab) {
+chrome.action.onClicked.addListener(function(tab) {
 	isOn = !isOn;
 	updateIcon(tab);
 	runScript(tab);

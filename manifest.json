@@ -1,12 +1,12 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name": "Edit Anything",
-	"version": "0.2",
-	"browser_action": {
+	"version": "0.3",
+	"action": {
 		"default_icon": "pencil-64x64.png"
 	},
 	"background": {
-		"scripts": ["bg.js"]
+		"service_worker": "bg.js"
 	},
-	"permissions":["activeTab"]
+	"permissions":["activeTab", "scripting"]
 }
